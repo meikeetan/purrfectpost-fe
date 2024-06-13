@@ -28,4 +28,19 @@ export const userSignup = async (userData) => {
     }
   }
 
+  export const userLogin = async (userData) => {
+    try {
+      console.log(userData)
+      const response = await api.post(`/users/login`, userData);
+      console.log("Login Response:", response);
+      const token = response.data.token;
+      const user = response.data.user;
+      localStorage.setItem("token", token);
+      return { token, user };
+    } catch (error) {
+      console.error("Login failed:", error);
+      throw new Error("Login failed");
+    }
+  };
+
 
