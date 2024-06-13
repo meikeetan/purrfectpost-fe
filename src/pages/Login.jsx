@@ -1,6 +1,6 @@
 function Login (){
     return(
-        <form>
+        <form> 
             <label>Email: <input type='email' placeholder='Your Email'></input></label>
             <br/>
             <label>Password: <input type='password' placeholder='Password'></input></label>
