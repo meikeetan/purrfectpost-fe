@@ -11,7 +11,9 @@ import { getUser } from './utilities/users-service';
 import Authentication from './pages/Authentication';
 
 function App() {
-  const [user, setUser] = useState(getUser());
+  const [user, setUser] = useState('');
+  //getUser()
+  
   return (
     <div className="Purrfect Post">
       {user?(
