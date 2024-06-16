@@ -31,6 +31,7 @@ const BASE_URL = "http://localhost:5001/api";
 
 export function userSignup(userInput) {
   return sendRequest(`${BASE_URL}/users`, 'POST', userInput)
+  
 }
 
   // export const userLogin = async (userData) => {

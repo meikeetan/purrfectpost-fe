@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { createPost, imageUpload } from "../utilities/apis";
+import { getUser } from "../utilities/users-service";
 
 function CreatePost() {
+    const creator = getUser()
   const [newPost, setNewPost] = useState({
+    createdBy: creator,
     caption: "",
-    images: [],
+    images: '',
   });
   function handleChange(evt) {
     if (evt.target.name === "images") {
@@ -19,8 +22,9 @@ function CreatePost() {
       createPost(newPost);
       alert('Post created!')
       setNewPost({
+        createdBy: creator,
         caption: "",
-        images: [],
+        images: '',
       })
       setFile(null); 
       document.getElementById('fileInput').value = '';
@@ -38,13 +42,14 @@ function CreatePost() {
 
     try {
       const response = await imageUpload(formData);
+      console.log(response)
       const imageUrl = response.data;
       setNewPost({
         ...newPost,
-        images: [...newPost.images, imageUrl],
+        images: imageUrl,
       });
       if(imageUrl){
-      alert("Image attached. Please submit your form!")
+      alert("Image attached successfully.")
       console.log(imageUrl);}
     } catch (error) {
       console.error("Image uploading failed.", error);
@@ -69,12 +74,10 @@ function CreatePost() {
       </div>
       {newPost.images.length > 0 && (
         <div>
-          <h3>Uploaded Images:</h3>
-          <ul>
-            {newPost.images.map((image, index) => (
-              <li className="uploaded-image" key={index}>{image}</li>
-            ))}
-          </ul>
+          <h3>Uploaded Image:</h3>
+          <div>
+              <img className="uploaded-image"  src={newPost.images}></img>
+          </div>
         </div>
       )}
 

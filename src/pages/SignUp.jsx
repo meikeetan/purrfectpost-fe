@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { userSignup } from '../utilities/apis';
+import { signUp } from '../utilities/users-service';
 
 
 function SignUp (props){
@@ -14,7 +14,7 @@ function SignUp (props){
     async function handleSubmit(evt) {
         evt.preventDefault(); 
         try {
-          const response = await userSignup(userInfo)
+          const response = await signUp(userInfo)
           const { token, user } = response;
           setUser(user)
         } catch (error) {  

@@ -1,5 +1,6 @@
 import {useState} from 'react';
-import { userLogin } from '../utilities/apis';
+import {login} from '../utilities/users-service';
+
 
 function Login (props){
     const {setUser} = props
@@ -11,9 +12,9 @@ function Login (props){
     async function handleSubmit(evt) {
         evt.preventDefault(); 
         try {
-          const response = await userLogin(userInfo)
-          const { token, user } = response;
-          setUser(user)
+          const response = await login(userInfo)
+          console.log(response)
+          setUser(response)
         } catch (error) {  
           console.log(error)
         }

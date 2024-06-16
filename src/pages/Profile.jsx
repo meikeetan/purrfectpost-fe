@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { logOut } from "../utilities/users-service"
 
 function Profile (){
     return(
@@ -6,7 +7,7 @@ function Profile (){
             <div>Profile Pic</div>
             <h1>Name</h1>
             <h2>Bio</h2>
-            <button>Logout</button>
+            <button onClick={logOut}>Logout</button>
            <Link to='/Settings'><button>Settings</button></Link> 
             <div>display my posts</div>
         </div>
