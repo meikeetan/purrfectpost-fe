@@ -28,6 +28,19 @@ export function getAllPosts() {
   return sendRequest(`${BASE_URL}/post`)
 }
 
+export function likePost(postID, userId) {
+  return sendRequest(`${BASE_URL}/post/updatelike/${postID}`, 'PUT', userId)
+}
 
+export function getMyPosts(userId) {
+  return sendRequest (`${BASE_URL}/post/me/${userId}`)
+}
 
+export function getMyInfo(userId) {
+  return sendRequest (`${BASE_URL}/users/me/${userId}`)
+}
+
+export function updateMyInfo(userId, userInput) {
+  return sendRequest (`${BASE_URL}/users/update/${userId}`,'PUT',userInput)
+}
 
