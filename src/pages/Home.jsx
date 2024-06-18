@@ -18,14 +18,13 @@ function Home (){
         console.log(picArray[0]) // log the updated picArray state every time it changes
     },[picArray]) // run this useEffect every time picArray changes
     
-    
     async function likeFunction(postId) {
         try {
             const userId = {
                 id: getUser()
             }
             const response = await likePost(postId, userId)
-            console.log(response)
+            console.log(response) 
         } catch (error) {
             console.log(error)
         }
@@ -40,6 +39,7 @@ function Home (){
                         <div key={index}>
                             <img src={post.images}/>
                             <h1>{post.caption}</h1>
+                            <h1>{post.likes && post.likes.length > 0 ? post.likes.length : ""}</h1>
                             <button onClick={()=>likeFunction(post._id)}> like</button>
                         </div>
                     ))

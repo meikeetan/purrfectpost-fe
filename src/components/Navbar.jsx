@@ -5,8 +5,8 @@ function Navbar (){
     return(
         <div>
         <Link className="Navbar" to='/'>Home</Link>
-        <Link className="Navbar" to='/CreatePost'>CreatePost</Link>
         <Link className="Navbar" to='/Explore'>Explore</Link>
+        <Link className="Navbar" to='/CreatePost'>CreatePost</Link>
         <Link className="Navbar" to='/Profile'>Profile</Link>
 
         </div>

@@ -5,7 +5,6 @@ const BASE_URL = "http://localhost:5001/api";
 
 export function userSignup(userInput) {
   return sendRequest(`${BASE_URL}/users`, 'POST', userInput)
-  
 }
 
   export function userLogin(userInput) {
@@ -28,6 +27,10 @@ export function getAllPosts() {
   return sendRequest(`${BASE_URL}/post`)
 }
 
+export function updateLikeCount(postID, userId) {
+  return axios.put(`${BASE_URL}/post/updatelike/${postID}`, { userId })
+}
+
 export function likePost(postID, userId) {
   return sendRequest(`${BASE_URL}/post/updatelike/${postID}`, 'PUT', userId)
 }
@@ -48,3 +51,4 @@ export function updateMyInfo(userId, userInput) {
 export function deletePost(postId) {
   return sendRequest(`${BASE_URL}/post/delete/${postId}`,'DELETE')
 }
+
