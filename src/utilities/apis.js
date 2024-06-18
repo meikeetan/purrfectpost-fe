@@ -44,3 +44,7 @@ export function updateMyInfo(userId, userInput) {
   return sendRequest (`${BASE_URL}/users/update/${userId}`,'PUT',userInput)
 }
 
+
+export function deletePost(postId) {
+  return sendRequest(`${BASE_URL}/post/delete/${postId}`,'DELETE')
+}
