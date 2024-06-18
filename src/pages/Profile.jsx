@@ -58,7 +58,6 @@ function Profile (){
                         <div key={index}>
                             <img src={post.images}/>
                             <h1>{post.caption}</h1>
-                            {post._id}
                             <button onClick={() => handleDeletePost(post._id)}>Delete</button> 
                         </div>
                     ))
