@@ -14,9 +14,9 @@ function SignUp (props){
     async function handleSubmit(evt) {
         evt.preventDefault(); 
         try {
-          const response = await signUp(userInfo)
-          const { token, user } = response;
+          const user = await signUp(userInfo)
           setUser(user)
+          console.log(user)
         } catch (error) {  
           console.log(error)
         }

@@ -9,6 +9,7 @@ import Settings from './pages/Settings';
 import React, { useState } from 'react';
 import { getUser } from './utilities/users-service';
 import Authentication from './pages/Authentication';
+import InterestedProfile from './pages/InterestedProfile';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -23,8 +24,9 @@ function App() {
                   <Route path="/" element={<Home />}></Route>
                   <Route path="/CreatePost" element={<CreatePost />}></Route>
                   <Route path="/Explore" element={<Explore />}></Route>
-                  <Route path="/Profile" element={<Profile />}></Route>
+                  <Route path="/Profile" element={<Profile setUser={setUser}/>}></Route>
                   <Route path="/Settings" element={<Settings />}></Route>
+                  <Route path="/interested-profile/:userId" element={<InterestedProfile/>}></Route>
                 </Routes>
               </Router>
       ): (

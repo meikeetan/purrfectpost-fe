@@ -1,6 +1,7 @@
 import { getAllPosts, likePost } from "../utilities/apis"
 import { useState, useEffect } from "react"
 import { getUser } from "../utilities/users-service"
+import { Link } from "react-router-dom"
 
 function Home (){
     const [picArray, setPicArray] = useState([{}])
@@ -37,9 +38,10 @@ function Home (){
                 ) : (
                     picArray.map((post, index) => (
                         <div key={index}>
-                            <img src={post.images}/>
+                            <Link to={`/interested-profile/${post.createdBy}`}>
+              <img src={post.images} />
+            </Link>
                             <h1>{post.caption}</h1>
-                            <h1>{post.likes && post.likes.length > 0 ? post.likes.length : ""}</h1>
                             <button onClick={()=>likeFunction(post._id)}> like</button>
                         </div>
                     ))

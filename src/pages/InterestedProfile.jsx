@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom"
-import { logOut } from "../utilities/users-service"
 import { useState, useEffect } from "react"
-import { getUser } from "../utilities/users-service"
-import { getMyInfo, getMyPosts, deletePost } from "../utilities/apis"
+import { useParams } from "react-router-dom"
+import { getMyInfo, getMyPosts } from "../utilities/apis"
 
-function Profile (props){
+function InterestedProfile (){
+    const  {userId}  = useParams();
+    console.log(userId)
     const [myPosts, setmyPosts] = useState([{}])
     const [info, setInfo] = useState({})
-    const userId = getUser()
-    const {setUser} = props
 
     async function showMe() {
         const myInfo = await getMyInfo(userId)
@@ -23,39 +21,16 @@ function Profile (props){
         return setmyPosts(allposts)
     }
 
-    async function handleDeletePost(postId){
-        try {
-            const response = await deletePost(postId);
-            console.log(response)
-            const updatedPosts = myPosts.filter((post) => post._id!== postId);
-            setmyPosts(updatedPosts);
-        } catch(error){
-            console.log(error)
-        }
-    }
-
     useEffect(()=>{
         showdatabase()
-        showMe()
+       showMe()
     },[])
 
-    function handleLogOut() {
-        logOut()
-        setUser(null)
-    }
-
-    return(
+    return (
         <div>
-            <div>
-                {/* Profile Pic: */}
-                <img src={info.profilePic}/> 
-            </div>
+            <img src={info.profilePic}/> 
             <h1>Name :  {info.name}</h1>
             <h2>Bio : {info.bio}</h2>
-            <button onClick={handleLogOut}>Logout</button>
-           <Link to='/Settings'>
-                <button>Settings</button>
-            </Link> 
             <div>
             {myPosts.length === 0? (
                     <div>There are no posts here.</div>
@@ -65,7 +40,6 @@ function Profile (props){
                             <img src={post.images}/>
                             <h1>{post.caption}</h1>
                             <h1>{post.likes && post.likes.length > 0 ? post.likes.length : ""}</h1>
-                            <button onClick={() => handleDeletePost(post._id)}>Delete</button> 
                         </div>
                     ))
                 )}
@@ -74,4 +48,4 @@ function Profile (props){
     )
 }
 
-export default Profile
+export default InterestedProfile
