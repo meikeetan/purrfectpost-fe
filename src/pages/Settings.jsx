@@ -1,23 +1,7 @@
-// function Settings (){
-//     return(
-//         <form>
-//             <div>Profile Pic</div>
-//             <button>Edit Picture</button>
-//             <br />
-//             <label>Name: <input placeholder='New Name'></input></label>
-//             <br/>
-//             <label>Bio: <input placeholder='New Bio'></input></label>
-//             <br>
-//             </br><button>Save Changes</button>
-//         </form>
-//     )
-// }
-
-// export default Settings
-
 import { useState } from "react";
-import { imageUpload, updateMyInfo, userSignup } from "../utilities/apis";
+import { imageUpload, updateMyInfo } from "../utilities/apis";
 import { getUser } from "../utilities/users-service";
+import { useNavigate } from "react-router-dom";
 
 function Settings() {
   const [profilePic, setProfilePic] = useState("");
@@ -27,6 +11,8 @@ function Settings() {
   const [error, setError] = useState(null);
   const [imageUrl, setImageUrl] = useState(""); // add this state to store the uploaded image URL
     const user = getUser()
+    const navigate = useNavigate();
+
  
 
   async function handleUpload() {
@@ -53,6 +39,7 @@ function Settings() {
       const response = await updateMyInfo(user,userInput);
       if(response) alert('changes made')
       setError(null);
+      navigate("/profile"); // navigate to the Profile page
     } catch (error) {
       setError(error.message);
     }

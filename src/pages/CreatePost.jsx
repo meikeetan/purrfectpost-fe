@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { createPost, imageUpload } from "../utilities/apis";
 import { getUser } from "../utilities/users-service";
+import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
-    const creator = getUser()
+  const navigate = useNavigate();
+  const creator = getUser()
   const [newPost, setNewPost] = useState({
     createdBy: creator,
     caption: "",
@@ -28,7 +30,7 @@ function CreatePost() {
       })
       setFile(null); 
       document.getElementById('fileInput').value = '';
-
+      navigate("/"); // navigate to the Home page
     } catch (error) {
       console.log(error);
     }
