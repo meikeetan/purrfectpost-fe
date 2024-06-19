@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Login from './Login';
-import SignUp from './SignUp';
+import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp'
+import "./Authentication.css"
 
 function Authentication(props) {
   const {setUser} = props
@@ -9,7 +10,7 @@ function Authentication(props) {
   return (
     <>
       <div>
-      <h1>Furry Post</h1>
+      <h1 className='title'> PURRFECT POST</h1>
         {isSignIn?'Welcome back pls Log in':'new here? sign up here'}
         {isSignIn ? <Login setUser={setUser} /> : <SignUp setUser={setUser} />}
         <button onClick={() => setIsSignIn(!isSignIn)}>

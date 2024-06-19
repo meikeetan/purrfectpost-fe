@@ -52,10 +52,6 @@ function Profile (props){
             </div>
             <h1>Name :  {info.name}</h1>
             <h2>Bio : {info.bio}</h2>
-            <button onClick={handleLogOut}>Logout</button>
-           <Link to='/Settings'>
-                <button>Settings</button>
-            </Link> 
             <div>
             {myPosts.length === 0? (
                     <div>There are no posts here.</div>

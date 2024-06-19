@@ -21,7 +21,13 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { logOut } from "../utilities/users-service";
 
-function Navbar() {
+
+function Navbar(props) {
+    const {setUser} = props
+    function handleLogOut() {
+        logOut()
+        setUser(null)
+    }
   return (
     <div className="Navbar">
       <Link className="link" to="/">
@@ -41,7 +47,7 @@ function Navbar() {
           <button className="dropbtn">⋮</button>
           <div className="dropdown-content">
             <Link to="/Settings">Settings</Link>
-            <button onClick={() => logOut()}>Logout</button>
+            <button onClick={handleLogOut}>Logout</button>
           </div>
         </div>
       </div>

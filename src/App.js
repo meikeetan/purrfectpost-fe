@@ -8,7 +8,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import React, { useState } from 'react';
 import { getUser } from './utilities/users-service';
-import Authentication from './pages/Authentication';
+import Authentication from './pages/Authentication/Authentication';
 import InterestedProfile from './pages/InterestedProfile';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <div className="Purrfect Post">
       {user?(
               <Router>
-              <Navbar/><hr/>
+              <Navbar setUser={setUser}/><hr/>
                 <Routes>
                   <Route path="/" element={<Home />}></Route>
                   <Route path="/CreatePost" element={<CreatePost />}></Route>
