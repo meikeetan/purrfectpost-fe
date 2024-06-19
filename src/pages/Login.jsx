@@ -16,7 +16,7 @@ function Login (props){
           console.log(response)
           setUser(response)
         } catch (error) {  
-          console.log(error)
+          alert(error)
         }
       }
 
@@ -24,11 +24,11 @@ function Login (props){
     return(
         <form onSubmit={handleSubmit}> 
             <label>
-            Email: <input type="email" value={userInfo.email} onChange={(event) => setUserInfo({...userInfo, email: event.target.value})} placeholder="Your Email" />
+            Email: <input required='true' type="email" value={userInfo.email} onChange={(event) => setUserInfo({...userInfo, email: event.target.value})} placeholder="Your Email" />
           </label>
           <br />
           <label>
-            Password: <input type="password" value={userInfo.password} onChange={(event) => setUserInfo({...userInfo, password: event.target.value})} placeholder="Password" />
+            Password: <input required='true' type="password" value={userInfo.password} onChange={(event) => setUserInfo({...userInfo, password: event.target.value})} placeholder="Password" />
           </label>
           <br />
           <button type="submit">Log In</button>

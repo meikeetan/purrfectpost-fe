@@ -1,0 +1,22 @@
+.title {
+  color: blue;
+}
+
+.post-image {
+  width: "80%";
+  height: "80%";
+  object-fit: "cover";
+  border-radius: "10px";
+  border: 1px solid black
+}
+
+.caption-and-likes{
+    display: "flex";
+    align-items: "center"
+}
+
+.caption{
+    font-size: "1.2rem";
+    margin-right: "10px";
+}
+
