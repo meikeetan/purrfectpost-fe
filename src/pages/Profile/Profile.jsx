@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom"
+import { logOut } from "../../utilities/users-service"
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { getMyInfo, getMyPosts } from "../utilities/apis"
+import { getUser } from "../../utilities/users-service"
+import { getMyInfo, getMyPosts, deletePost } from "../../utilities/apis"
 
-function InterestedProfile (){
-    const  {userId}  = useParams();
-    console.log(userId)
+function Profile (props){
     const [myPosts, setmyPosts] = useState([{}])
     const [info, setInfo] = useState({})
+    const userId = getUser()
+    const {setUser} = props
 
     async function showMe() {
         const myInfo = await getMyInfo(userId)
@@ -21,14 +23,33 @@ function InterestedProfile (){
         return setmyPosts(allposts)
     }
 
+    async function handleDeletePost(postId){
+        try {
+            const response = await deletePost(postId);
+            console.log(response)
+            const updatedPosts = myPosts.filter((post) => post._id!== postId);
+            setmyPosts(updatedPosts);
+        } catch(error){
+            console.log(error)
+        }
+    }
+
     useEffect(()=>{
         showdatabase()
-       showMe()
+        showMe()
     },[])
 
-    return (
+    function handleLogOut() {
+        logOut()
+        setUser(null)
+    }
+
+    return(
         <div>
-            <img src={info.profilePic}/> 
+            <div>
+                {/* Profile Pic: */}
+                <img src={info.profilePic}/> 
+            </div>
             <h1>Name :  {info.name}</h1>
             <h2>Bio : {info.bio}</h2>
             <div>
@@ -40,6 +61,7 @@ function InterestedProfile (){
                             <img src={post.images}/>
                             <h1>{post.caption}</h1>
                             <h1>{post.likes && post.likes.length > 0 ? post.likes.length : ""}</h1>
+                            <button onClick={() => handleDeletePost(post._id)}>Delete</button> 
                         </div>
                     ))
                 )}
@@ -48,4 +70,4 @@ function InterestedProfile (){
     )
 }
 
-export default InterestedProfile
+export default Profile

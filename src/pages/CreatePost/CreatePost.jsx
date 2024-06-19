@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { createPost, imageUpload } from "../utilities/apis";
-import { getUser } from "../utilities/users-service";
+import { createPost, imageUpload } from "../../utilities/apis";
+import { getUser } from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
+import "./CreatePost.css"
+
+
 
 function CreatePost() {
   const navigate = useNavigate();

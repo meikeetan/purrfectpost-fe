@@ -9,9 +9,11 @@ function Authentication(props) {
 
   return (
     <>
-      <div>
+      <div className='loginContainer'>
       <h1 className='title'> PURRFECT POST</h1>
-        {isSignIn?'Welcome back pls Log in':'new here? sign up here'}
+      <div className='subtitle'>
+        {isSignIn?'Welcome back!':'Welcome! Sign up here!'}
+        </div>
         {isSignIn ? <Login setUser={setUser} /> : <SignUp setUser={setUser} />}
         <button onClick={() => setIsSignIn(!isSignIn)}>
           {isSignIn ? 'Switch to Sign Up' : 'Switch to Login'}

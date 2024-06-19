@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import CreatePost from './pages/CreatePost';
+import CreatePost from './pages/CreatePost/CreatePost';
 import Home from './pages/Home/Home';
-import Explore from './pages/Explore';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
+import Explore from './pages/Explore/Explore';
+import Profile from './pages/Profile/Profile';
+import Settings from './pages/Settings/Settings';
 import React, { useState } from 'react';
 import { getUser } from './utilities/users-service';
 import Authentication from './pages/Authentication/Authentication';
-import InterestedProfile from './pages/InterestedProfile';
+import InterestedProfile from './pages/InterestedProfile/InterestedProfile';
 
 function App() {
   const [user, setUser] = useState(getUser());

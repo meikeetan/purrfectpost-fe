@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "./Explore.css"
+
 
 function Explore (){
     const [catImages, setCatImages] = useState([]);

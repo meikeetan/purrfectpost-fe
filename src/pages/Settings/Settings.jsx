@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { imageUpload, updateMyInfo } from "../utilities/apis";
-import { getUser } from "../utilities/users-service";
+import { imageUpload, updateMyInfo } from "../../utilities/apis";
+import { getUser } from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
 
 function Settings() {
