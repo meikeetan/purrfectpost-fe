@@ -1,33 +1,14 @@
-// import { Link } from "react-router-dom"
-// import './Navbar.css'
-// import { useState } from "react"
-
-// function Navbar (){
-
-//     return(
-//         <div>
-//         <Link className="Navbar" to='/'>Home</Link>
-//         <Link className="Navbar" to='/Explore'>Explore</Link>
-//         <Link className="Navbar" to='/CreatePost'>CreatePost</Link>
-//         <Link className="Navbar" to='/Profile'>Profile</Link>
-
-//         </div>
-//     )
-// }
-
-// export default Navbar
-
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { logOut } from "../utilities/users-service";
-
+import { logOut } from "../../utilities/users-service";
+import "./Navbar.css";
 
 function Navbar(props) {
-    const {setUser} = props
-    function handleLogOut() {
-        logOut()
-        setUser(null)
-    }
+  const { setUser } = props;
+  function handleLogOut() {
+    logOut();
+    setUser(null);
+  }
   return (
     <div className="Navbar">
       <Link className="link" to="/">

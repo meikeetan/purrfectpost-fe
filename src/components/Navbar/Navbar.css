@@ -1,26 +1,20 @@
-/* 
 .Navbar {
-   text-decoration: none;
-   margin :50px 
-   
-} */
-
-.Navbar {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 10px;
-   background-color: #333;
- }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: pink 
+}
  
- .link {
-   color: #fff;
-   text-decoration: none;
-   padding: 5px;
- }
+.link {
+  color: #000; 
+  text-decoration: none;
+  padding: 5px;
+  margin: 0 20px; 
+}
  
  .link:hover {
-   background-color: #555;
+   background-color: rgb(244, 207, 225);
  }
  
  .profile-container {
@@ -42,7 +36,7 @@
  
  .dropbtn {
    color: #fff;
-   background-color: #333;
+   background-color: pink;
    border: none;
    cursor: pointer;
    padding: 5px;
@@ -51,7 +45,7 @@
  .dropdown-content {
    display: none;
    position: absolute;
-   background-color: #333;
+   background-color: black;
    min-width: 160px;
    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
    z-index: 1;
@@ -65,7 +59,7 @@
  }
  
  .dropdown-content a:hover {
-   background-color: #555;
+   background-color: pink;
  }
  
  .dropdown:hover .dropdown-content {
