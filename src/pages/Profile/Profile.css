@@ -1,0 +1,10 @@
+.profilePic {
+    width: 200px; /* adjust the size to your liking */
+    height: 200px;
+    border-radius: 50%; /* makes the image a circle */
+    object-fit: cover; /* ensures the image is fully visible within the circle */
+    border: 2px solid #ddd; /* adds a slight border around the image */
+    margin: 10px; /* adds some space around the image */
+  }
+
+  

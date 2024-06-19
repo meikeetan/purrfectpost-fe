@@ -22,8 +22,9 @@ function Explore (){
     }, []);
 
     return (
-      <div>
-        <h1>your daily dosage of purrr</h1>
+
+      <div className="container">
+        <h1 className="title">Daily Dose of PURRR</h1>
         {catImages.map((image, index) => (
           <img
             key={index}

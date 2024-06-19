@@ -2,17 +2,15 @@ import { useState } from "react";
 import { createPost, imageUpload } from "../../utilities/apis";
 import { getUser } from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
-import "./CreatePost.css"
-
-
+import "./CreatePost.css";
 
 function CreatePost() {
   const navigate = useNavigate();
-  const creator = getUser()
+  const creator = getUser();
   const [newPost, setNewPost] = useState({
     createdBy: creator,
     caption: "",
-    images: '',
+    images: "",
   });
   function handleChange(evt) {
     if (evt.target.name === "images") {
@@ -25,14 +23,14 @@ function CreatePost() {
     evt.preventDefault();
     try {
       createPost(newPost);
-      alert('Post created!')
+      alert("Post created!");
       setNewPost({
         createdBy: creator,
         caption: "",
-        images: '',
-      })
-      setFile(null); 
-      document.getElementById('fileInput').value = '';
+        images: "",
+      });
+      setFile(null);
+      document.getElementById("fileInput").value = "";
       navigate("/"); // navigate to the Home page
     } catch (error) {
       console.log(error);
@@ -47,15 +45,16 @@ function CreatePost() {
 
     try {
       const response = await imageUpload(formData);
-      console.log(response)
+      console.log(response);
       const imageUrl = response.data;
       setNewPost({
         ...newPost,
         images: imageUrl,
       });
-      if(imageUrl){
-      alert("Image attached successfully.")
-      console.log(imageUrl);}
+      if (imageUrl) {
+        alert("Image attached successfully.");
+        console.log(imageUrl);
+      }
     } catch (error) {
       console.error("Image uploading failed.", error);
     }
@@ -63,44 +62,42 @@ function CreatePost() {
 
   return (
     <div className="create-Post-container">
-    <h1>Create New Post</h1>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="fileInput">Images:</label>
-        <input
-          id="fileInput"
-          type="file"
-          accept="image/*"
-          onChange={(e) => setFile(e.target.files[0])}
-        />
-        <button type="button" onClick={handleUpload}>
-          Upload
-        </button>
-      </div>
-      {newPost.images.length > 0 && (
+      <h1 className="title">Create New Post</h1>
+      <form onSubmit={handleSubmit}>
         <div>
-          <h3>Uploaded Image:</h3>
-          <div>
-              <img className="uploaded-image"  src={newPost.images}></img>
-          </div>
+          <label htmlFor="fileInput">Images:</label>
+          <input
+            id="fileInput"
+            type="file"
+            accept="image/*"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+          <button type="button" onClick={handleUpload}>
+            Upload
+          </button>
         </div>
-      )}
-
-<label>
-        Caption
-        <input
-          placeholder="Caption"
-          name="caption"
-          type="text"
-          value={newPost.caption}
-          onChange={handleChange}
-        />
-      </label>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-);
+        {newPost.images.length > 0 && (
+          <div>
+            <h3>Uploaded Image: </h3>
+            <div>
+              <img className="uploaded-image" src={newPost.images}></img>
+            </div>
+          </div>
+        )}
+        <label>
+          Caption:  
+          <input
+            placeholder="Caption"
+            name="caption"
+            type="text"
+            value={newPost.caption}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 }
 
-export default CreatePost
+export default CreatePost;
