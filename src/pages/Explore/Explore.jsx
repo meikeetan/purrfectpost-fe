@@ -25,10 +25,10 @@ function Explore (){
 
       <div className="container">
         <h1 className="title">Daily Dose of PURRR</h1>
-        {catImages.map((image, index) => (
-          <img
+        {catImages.slice(0, 9).map((image, index) => (
+          <img className="catPics"
             key={index}
-            style={{ height: "200px", width: "400px", position: "relative", left: "35%" }}
+            style={{ height: "200px", width: "400px", position: "relative", left: "9%" }}
             src={image.url}
             alt="Random Cat Pic"
           />
