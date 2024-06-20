@@ -18,7 +18,10 @@ In PURRFECTPOST, users can:
 ![Cute cat](./screenshots/Screenshot%202024-06-20%20at%207.32.49 PM.png)
 
 ### Explore
+![Cute cat](./screenshots/ExplorePage.png)
 
+### CreatePost
+![Cute cat](./screenshots/CreatePostPage.png)
 
 ## Future Developments
 
