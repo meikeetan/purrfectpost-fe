@@ -14,6 +14,11 @@ In PURRFECTPOST, users can:
 
 ## Screenshots
 
+### Home 
+![Cute cat](./screenshots/Screenshot%202024-06-20%20at%207.32.49 PM.png)
+
+### Explore
+
 
 ## Future Developments
 
