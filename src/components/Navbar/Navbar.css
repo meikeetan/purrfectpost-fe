@@ -66,4 +66,20 @@
    display: block;
  }
 
+ .caption {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 18px; 
+  word-break: break-word; 
+}
+
+.post-container {
+  margin-bottom: 20px; 
+  padding: 10px; 
+}
+
+
+
 

@@ -57,9 +57,9 @@ function Profile (props){
                     <div>There are no posts here.</div>
                 ) : (
                     myPosts.map((post, index) => (
-                        <div key={index}>
+                        <div key={index} className="post-container">
                             <img src={post.images}/>
-                            <h1>{post.caption}</h1>
+                            <h1 className="caption">{post.caption}</h1>
                             <h1>{post.likes && post.likes.length > 0 ? post.likes.length : ""}</h1>
                             <button onClick={() => handleDeletePost(post._id)}>Delete</button> 
                         </div>
