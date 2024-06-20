@@ -3,13 +3,14 @@
   text-align: center;
 }
 
- .post-container {
-  width: 150px; 
-  height: 150px; 
-  border-radius: 10px;
-  overflow: hidden; 
-  margin: 10px; 
+.postContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px;
 }
+
 
 .post-image {
   width: 100%; 
@@ -19,13 +20,17 @@
 
 
 .caption-and-likes {
-  padding: 10px; 
+  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-left: -10px; /* move it to the left of the image */
 }
 
 .caption {
   font-size: 1.2rem;
   margin-right: 10px;
+}
+
+.like-button {
+  margin-left: 10px;
 }
